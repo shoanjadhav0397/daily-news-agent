@@ -5,11 +5,24 @@ from email.mime.text import MIMEText
 import feedparser
 from google import genai
 
-# Configuration
-GMAIL_USER = os.environ["GMAIL_USER"]
-GMAIL_APP_PASS = os.environ["GMAIL_APP_PASS"]
+# 1. Fetch API Key safely from environment, or fall back to your direct key for local testing
+GEMINI_API_KEY = (
+    os.environ.get("GEMINI_API_KEY")
+    or os.environ.get("GOOGLE_API_KEY")
+    or "AQ.Ab8RN6Kbe896_q1NFmtnRICZON_fGuIoJpMxyrfWPxJj1bUbpw"  # <-- Paste key here if testing locally (DO NOT commit key to public GitHub)
+)
+
+GMAIL_USER = os.environ.get("GMAIL_USER", "shoansj@gmail.com")
+GMAIL_APP_PASS = os.environ.get(
+    "GMAIL_APP_PASS", "jhmh llfr mpdo lmrn"
+)  # No spaces
 RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", GMAIL_USER)
-GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
+
+if not GEMINI_API_KEY or GEMINI_API_KEY == "AQ.Ab8RN6Kbe896_q1NFmtnRICZON_fGuIoJpMxyrfWPxJj1bUbpw":
+  raise ValueError(
+      "No valid Gemini API key found. Please set GEMINI_API_KEY in your"
+      " environment or paste it into the script."
+  )
 
 RSS_FEEDS = [
     "http://feeds.bbci.co.uk/news/world/rss.xml",
