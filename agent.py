@@ -9,7 +9,7 @@ from google import genai
 GEMINI_API_KEY = (
     os.environ.get("GEMINI_API_KEY")
     or os.environ.get("GOOGLE_API_KEY")
-    or "AQ.Ab8RN6Kbe896_q1NFmtnRICZON_fGuIoJpMxyrfWPxJj1bUbpw"  # <-- Paste key here if testing locally (DO NOT commit key to public GitHub)
+    or "AQ.Ab8RN6J1w33eAFm7UL72-pRIqGdyYbuXa_CIibGcqBr_mone-g"  # <-- Paste key here if testing locally (DO NOT commit key to public GitHub)
 )
 
 GMAIL_USER = os.environ.get("GMAIL_USER", "shoansj@gmail.com")
@@ -18,7 +18,7 @@ GMAIL_APP_PASS = os.environ.get(
 )  # No spaces
 RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", GMAIL_USER)
 
-if not GEMINI_API_KEY or GEMINI_API_KEY == "AQ.Ab8RN6Kbe896_q1NFmtnRICZON_fGuIoJpMxyrfWPxJj1bUbpw":
+if not GEMINI_API_KEY or GEMINI_API_KEY == "AQ.Ab8RN6J1w33eAFm7UL72-pRIqGdyYbuXa_CIibGcqBr_mone-g":
   raise ValueError(
       "No valid Gemini API key found. Please set GEMINI_API_KEY in your"
       " environment or paste it into the script."
